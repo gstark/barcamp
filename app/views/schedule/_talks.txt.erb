@@ -1,0 +1,6 @@
+<%- if talks.any? -%>
+    <%= daypart_description %>
+    <%- talks.each do |talk| -%>
+        <%= talk_time(talk) %> - <%= talk.name %>
+    <%- end -%>
+<%- end -%>

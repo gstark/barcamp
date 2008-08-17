@@ -1,0 +1,88 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+  <title><%= PAGE_TITLE %></title>
+  <meta name="viewport" content="width=320; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;"/>
+  <%= stylesheet_link_tag    "iui/iui.css" %>
+  <%= javascript_include_tag "iui/iui.js"  %>
+  <style type="text/css" media="screen">
+    .talkpanel label
+    {
+      font-size: 0.6em;
+    }
+
+    .talkname
+    {
+      position:       absolute;
+      left:           90px;
+      top:            12px;
+      width:          190px;
+
+      text-overflow:  ellipsis;
+      overflow:       hidden;
+      white-space:    nowrap;
+      text-align:     left;
+    }
+  </style>
+  </head>
+
+  <body>
+    <div class="toolbar">
+      <h1 id="pageTitle"></h1>
+      <a id="backButton" class="button" href="#"></a>
+    </div>
+
+    <ul id="home" title="<%= PAGE_TITLE %>" selected="true">
+      <li><a href="#sponsors">About our sponsors</a></li>
+      <% @rooms.each do |room| %>
+        <li><a href="#<%= dom_id( room ) %>"><%= room.name %></a></li>
+      <% end %>
+      <li><a href="<%= HOMEPAGE %>" target="_blank"><%= HOMEPAGE %></a></li>
+    </ul>
+
+    <ul id="sponsors" title="Sponsors">
+      <% @sponsors_by_level.each do |level,sponsors| %>
+        <li class="group"><%= level %></li>
+        <% sponsors.each do |sponsor| %>
+          <li><a href="#<%= dom_id( sponsor ) %>"><%= sponsor.name %></a></li>
+        <% end %>
+      <% end %>
+    </ul>
+
+    <% @rooms.each do |room| %>
+      <div id="<%= dom_id(room) %>" class="talkpanel panel" title="<%= room.name %>">
+        <% if room.talks.empty? %>
+          <fieldset>
+            <div class="row">
+              <label><%= NO_TALKS %></label>
+            </div>
+          </fieldset>
+        <% else %>
+          <%= render :partial => "talks", :locals => { :daypart_description => "Morning",   :talks => room.talks.morning.by_time }%>
+          <%= render :partial => "talks", :locals => { :daypart_description => "Afternoon", :talks => room.talks.afternoon.by_time }%>
+        <% end %>
+      </div>
+    <% end %>
+
+    <% @talks.each do |talk| %>
+      <div id="<%= dom_id( talk ) %>" class="panel" title="<%= talk.name %>">
+        <h2><%= talk.name %></h2>
+        <h2><%= talk.who %></h2>
+        <pre>
+          <%= talk.room.name %>
+          <%= talk_time( talk ) %>
+        </pre>
+        <p>
+          <%= talk.description %>
+        </p>
+      </div>
+    <% end %>
+
+    <% @sponsors.each do |sponsor| %>
+      <div id="<%= dom_id(sponsor) %>" class="panel" title="<%= sponsor.name %>">
+        <h2><%= sponsor.name %></h2>
+        <img src="<%= sponsor.logo_url %>"></img>
+      </div>
+    <% end %>
+  </body>
+</html>

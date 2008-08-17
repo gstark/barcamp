@@ -1,0 +1,11 @@
+<% if talks.any? %>
+  <h2><%= daypart_description %></h2>
+  <fieldset>
+    <% talks.each do |talk| %>
+      <div class="row">
+        <label><%= talk_time( talk ) %></label>
+        <a href="#<%= dom_id( talk)%>" class="talkname"><%= talk.name %></a>
+      </div>
+    <% end %>
+  </fieldset>
+<% end %>

@@ -1,0 +1,17 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  name: MyString
+  description: MyText
+  who: MyString
+  room_id: 1
+  start_time: 2008-08-17 02:07:52
+  end_time: 2008-08-17 02:07:52
+
+two:
+  name: MyString
+  description: MyText
+  who: MyString
+  room_id: 1
+  start_time: 2008-08-17 02:07:52
+  end_time: 2008-08-17 02:07:52

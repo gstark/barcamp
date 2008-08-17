@@ -1,0 +1,21 @@
+
+<%= PAGE_TITLE %>
+
+Sponsors:
+<%- @sponsors_by_level.each do |level,sponsors| -%>
+  <%= level %>
+  <%- sponsors.each do |sponsor| -%>
+    <%= sponsor.name %> <%= sponsor.homepage %>
+  <%- end -%>
+<% end %>
+
+<%- @rooms.each do |room| -%>
+  <%= room.name %>
+  <%- if room.talks.empty? -%>
+    <%= NO_TALKS %>
+
+  <%- else -%>
+<%= render :partial => "talks", :locals => { :daypart_description => "Morning",   :talks => room.talks.morning.by_time }%>
+<%= render :partial => "talks", :locals => { :daypart_description => "Afternoon", :talks => room.talks.afternoon.by_time }%>
+  <%- end -%>
+<%- end -%>

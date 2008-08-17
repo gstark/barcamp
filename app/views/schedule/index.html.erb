@@ -1,0 +1,34 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title><%= PAGE_TITLE %></title>
+    <%= stylesheet_link_tag "yui-reset" %>
+    <%= stylesheet_link_tag "style" %>
+  </head>
+
+  <body>
+    <h1><%= PAGE_TITLE %></h1>
+
+    <h2>Sponsors:</h2>
+    <%- @sponsors_by_level.each do |level,sponsors| -%>
+      <h3><%= level %></h3>
+      <%- sponsors.each do |sponsor| -%>
+        <h4><%= sponsor.name %> <%= link_to sponsor.homepage, sponsor.homepage %></h4>
+      <%- end -%>
+    <% end %>
+
+    <ul>
+      <%- @rooms.each do |room| -%>
+        <li class="room_name"><%= room.name %></li>
+        <%- if room.talks.empty? -%>
+          <li class="no_talks"><%= NO_TALKS %></li>
+
+        <%- else -%>
+          <%= render :partial => "talks", :locals => { :daypart_description => "Morning",   :talks => room.talks.morning.by_time }%>
+          <%= render :partial => "talks", :locals => { :daypart_description => "Afternoon", :talks => room.talks.afternoon.by_time }%>
+        <%- end -%>
+      <%- end -%>
+    </ul>
+  </body>
+</html>
