@@ -128,36 +128,10 @@ namespace :barcamp do
     # Write out a custom 500.html message  
     maintenance = maintenance_page( %{ We're sorry, but something went wrong %},
                                     %{ <h1 style="font-size: 120%; color: #f00; line-height: 1.5em;">An Error Occurred Processing Your Request.</h1>
-                                       <p>Real Digital Media's Support Staff has been notified, and is investigating the cause</p>
+                                       <p>Support Staff has been notified, and is investigating the cause</p>
                                        <p>We appologize for the incovnenience.  Please click <a href="/">here</a> to return to the application.</p> } )
     
     put maintenance, "#{release_path}/public/500.html", :mode => 0644
-  end
-
-  desc "tail production log files" 
-  task :tail_logs, :roles => :app do
-    run "tail -f #{shared_path}/log/production.log" do |channel, stream, data|
-      data.split("\n").each do |line|
-        puts "#{channel[:host]}: #{line}" 
-      end
-      break if stream == :err    
-    end
-  end
-
-  desc "svn log latest changes"
-  task :svn_log_latest_changes, :roles => :app do
-    command = <<-EOF
-      cd #{deploy_to}/releases;
-      last_version_dir=`ls | tail -1`;
-      next_to_last_version_dir=`ls | tail -2 | head -1`;
-
-      last_version=`svn info ${last_version_dir} | grep "Last Changed Rev:" | awk "{print \\\\$4}"`;
-      next_to_last_version=`svn info ${next_to_last_version_dir} | grep "Last Changed Rev:" | awk "{print \\\\$4}"`;
-
-      svn log ${last_version_dir} -r${last_version}:${next_to_last_version} | grep -v ^- | grep -v ^$ | grep -v ^r[0-9]*;
-    EOF
-
-    stream command
   end
 end
 
