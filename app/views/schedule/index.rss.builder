@@ -3,7 +3,7 @@ xml.rss :version => "2.0" do
 
   xml.channel do
     xml.title PAGE_TITLE
-    xml.link  HOME_PAGE
+    xml.link  HOMEPAGE
     xml.description "Talks Schedule for #{PAGE_TITLE}"
 
     @sponsors.each do |sponsor|
