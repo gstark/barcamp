@@ -1,0 +1,142 @@
+/* CSS from http://bloggingmeta.com */
+
+/* @group General */
+
+body {
+	font: 76%/1.6em "Lucida Grande", Lucida, Verdana, sans-serif;
+	background: #0085C3;
+}
+
+#wrapper {
+	background: #fff;
+	color: #68768D;
+	width: 85%;
+	margin: 10px auto;
+	padding: 20px;
+	font-size: 1.3em;
+
+}
+
+a {
+	color: #00589D;
+}
+
+a:hover {
+	color: #AE4F00;
+	text-decoration: none;
+}
+
+a:visited {
+	text-decoration: none;
+}
+
+.time {
+	background: #68768D;
+	color: #fff;
+	padding: 2px;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	
+}
+
+.head {
+	cursor: pointer;
+	display: block;
+	background: url(/images/expand.png) no-repeat left center;
+	padding-left: 18px;
+}
+
+.head.active {
+	background: url(/images/contract.png) no-repeat left center;
+	padding-left: 18px;
+}
+
+/* @end */
+
+/* @group Headings
+ */
+
+h1,h2,h3,h4 {
+	font-family: Cambria, Georgia, Times, Times New Roman, serif;
+}
+
+h1 {
+	font-size: 2.2em;
+	text-align: center;
+	padding-bottom: .5em;
+	border-bottom: 1px solid #253245;
+}
+
+h2 {
+	font-size: 1.7em;
+	color: #253245;
+	margin: .5em;
+}
+
+h3 {
+	font-size: 1.6em;
+	color: #E0CD52;
+	width: 6em;
+	padding:0 0 .25em 25px;
+	margin: .75em;
+	border-bottom: 1px solid #e0cd52;
+}
+
+h4 {
+	font-size: 1.4em;
+	padding-left: 50px;
+}
+
+.room_name h3 {
+	width: 6em;
+	font-size: 1.4em;
+	color: #253245;
+	padding-bottom: 4px;
+	margin: 15px 0;
+	border-bottom: 1px solid #253245;
+}
+
+.day_part h4 {
+	color: #AE4F00;
+	font-size: 1.2em;
+	margin-bottom: .5em;
+}
+/* @end */
+
+/* @group Lists */
+
+ul {
+	padding-left: 75px;
+	list-style-type: none;
+	margin: 3em 0 0 0;
+}
+
+ul li ul {
+	margin: 0;
+}
+
+li.room_name {
+
+}
+
+ul.day_part {
+	
+	margin: 1em .5em;
+	padding: 0;
+}
+
+li.talk_name {
+	font-size: 1.2em;
+	color: #68768D;
+	padding: .5em;
+}
+
+
+li.no_talks {
+	color: #AE1C00;
+	font-weight: 700;
+}
+
+
+/* @end */
+

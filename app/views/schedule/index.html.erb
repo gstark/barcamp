@@ -3,32 +3,59 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title><%= PAGE_TITLE %></title>
-    <%= stylesheet_link_tag "yui-reset" %>
+    <%= stylesheet_link_tag  "yui-reset" %>
     <%= stylesheet_link_tag "style" %>
+
+    <%= javascript_include_tag 'jquery-1.2.6' %>
+    <%= javascript_include_tag 'jquery.corner' %>
+
+    <script type="text/javascript">
+      $(document).ready(
+        function()
+        {
+          $(".head").click(
+            function()
+            {
+              $(this).next().slideToggle("slow");
+              $(this).toggleClass("active");
+            } 
+          ).next().hide();
+      $("#wrapper").corner ("20px");
+      }
+    );
+    </script>
+
+
   </head>
 
   <body>
-    <h1><%= PAGE_TITLE %></h1>
+	  <div id="wrapper">
+      <h1><%= PAGE_TITLE %></h1>
 
-    <h2>Sponsors:</h2>
-    <%- @sponsors_by_level.each do |level,sponsors| -%>
-      <h3><%= level %></h3>
-      <%- sponsors.each do |sponsor| -%>
-        <h4><%= sponsor.name %> <%= link_to sponsor.homepage, sponsor.homepage %></h4>
-      <%- end -%>
-    <% end %>
-
-    <ul>
-      <%- @rooms.each do |room| -%>
-        <li class="room_name"><%= room.name %></li>
-        <%- if room.talks.empty? -%>
-          <li class="no_talks"><%= NO_TALKS %></li>
-
-        <%- else -%>
-          <%= render :partial => "talks", :locals => { :daypart_description => "Morning",   :talks => room.talks.morning.by_time }%>
-          <%= render :partial => "talks", :locals => { :daypart_description => "Afternoon", :talks => room.talks.afternoon.by_time }%>
+      <h2>Sponsors:</h2>
+      <%- @sponsors_by_level.each do |level,sponsors| -%>
+        <h3><%= level %></h3>
+        <%- sponsors.each do |sponsor| -%>
+          <h4><%= sponsor.name %> <%= link_to sponsor.homepage, sponsor.homepage %></h4>
         <%- end -%>
-      <%- end -%>
-    </ul>
+      <% end %>
+
+      <ul>
+        <%- @rooms.each do |room| -%>
+          <li class="room_name">
+            <h3 class="head"><%= room.name %></h3>
+            <ul>
+              <%- if room.talks.empty? -%>
+                <li class="no_talks"><%= NO_TALKS %></li>
+
+              <%- else -%>
+                  <%= render :partial => "talks", :locals => { :daypart_description => "Morning",   :talks => room.talks.morning.by_time }%>
+                  <%= render :partial => "talks", :locals => { :daypart_description => "Afternoon", :talks => room.talks.afternoon.by_time }%>
+              <%- end -%>
+            </ul>
+          </li>
+        <%- end -%>
+      </ul>
+    </div>
   </body>
 </html>
