@@ -3,7 +3,7 @@
     <h4><%= daypart_description %></h4>
     <ul>
       <%- talks.each do |talk| -%>
-        <li class="talk_name"><%= talk_time(talk) %> - <%= talk.name %></li>
+        <li class="talk_name"><span class="time"><%= talk_time(talk) %></span> - <%= talk.name %></li>
       <%- end -%>
     </ul>
   </li>
