@@ -1,0 +1,325 @@
+/* 
+ wFORMS 2.0 Stylesheet - Post-It Theme v3 by Jason Shore (www.shoremark.com) - Aug. 2006
+ See http://www.formassembly.com/wForms
+ 
+ To be used along with wforms-jsonly.css
+ This stylesheet and the associated images are Copyright (c) 2005 Jason Shore (http://www.shoremark.com)	
+ and licensed under the Creative Commons Attribution-ShareAlike License (http://creativecommons.org/licenses/by-sa/2.0/) 
+*/
+
+form {
+	margin: 0;
+	padding: 0 10px 10px 10px;
+	font-family:"Trebuchet MS", Helvetica, Verdana;	
+	font-size: small;
+	background-repeat: repeat-x;
+	background-position: 0 0;
+}
+form a{
+	color:#3366cc;
+	text-decoration: none;	
+}
+form a:hover{
+	color:#00c;
+	border-bottom: 1px dotted #00c;
+}
+
+/* Form Sections ======================================================================== */
+
+/* Fieldset  */
+fieldset {
+	margin: 20px 0;
+	padding: 15px 10px 55px;
+	background-color:#fff;
+	background-repeat:no-repeat;
+	background-position: bottom right;
+	border: 1px solid #f2f2f2;	
+	overflow: auto;
+}
+legend {
+	padding: 2px 5px;
+	text-transform: uppercase;
+	text-indent: 0;
+	background-color: #fff;
+	border: 2px solid #f2f2f2;	
+}
+legend:first-letter {
+	font-size: 120%;
+}
+/* Nested Fieldset  */
+fieldset fieldset  {
+	background-color: #fffce3;
+	margin: 20px 50px 0 50px;
+	border-top: 2px solid #f5f2da;	
+	border-left: 2px solid #f5f2da;
+	border-bottom: 0px;
+	border-right: 0px;
+}
+fieldset fieldset legend {
+	font-size: small;
+	background-color: #fffacc;
+	border: 2px solid #f5f2da;	
+}
+/* Inline Section */
+.inlineSection {
+	overflow: auto;
+	width: 100%;	
+}
+/* Grid Section */
+form table {
+	border-collapse: collapse;
+}
+form td {
+	padding: 0 4px;
+	border-left: 1px solid #DFDED2;
+	border-right: 1px solid #DFDED2;	
+}
+form th {
+	padding: 0 4px;
+}
+form .alternate-1 {
+	background-color:#FCFCED;
+}
+form .alternate-1 td {
+	border-left: 1px solid #DFDED2;
+	border-right: 1px solid #DFDED2;	
+}
+form .alternate-0 {
+}
+
+/* Combo Label + Input Field =========================================================== */
+form .oneField {
+	margin: 6px 0;
+	display: block;
+	vertical-align: middle;
+}
+form .inlineSection .oneField {
+	margin-right: 2px;
+	white-space: nowrap;	
+	display: inline;
+}
+/* Ties together a label and its checkbox or radio */
+form .oneChoice {
+	white-space: nowrap; 	
+}
+
+/* Field Labels ======================================================================== */
+
+/* Base */
+label, form .label {	
+	color: #333;
+	margin: 0;
+}
+/* Text inputs / Select label */
+label.preField {
+	display: -moz-inline-box;
+	display: inline-block;	
+	margin: 0.6em 4px 0 0;
+	padding: 0 2px;
+	min-width: 7em;
+}
+/* Radio / Checkbox group label */
+form .label  {
+	display: block; 
+	margin: 0.6em 4px 0 0;
+	padding: 2px;
+}
+/* Individual Checkbox / Radio label */
+label.postField  {
+	margin: 0 4px 0 4px;
+}
+/* Label when inside an inline section */
+form .inlineSection .oneField .inlineLabel {
+	display: -moz-inline-box;
+	display: inline-block;	
+	margin: 0.6em 4px 0 0;
+	padding: 0 2px;
+	min-width: 7em;
+	white-space: normal;
+}
+
+/* Inputs ======================================================================== */
+
+textarea {
+	padding: 0;
+	vertical-align: top;
+	margin: 2px 2px 1px 0;
+}
+input {
+}
+input[type=text], input[type=password] {
+	border: 2px solid #e2e2e2;	
+}
+select {
+	margin: 2px 2px 1px 0;
+	padding: 0;
+}
+.inlineSection .oneField select {
+	margin: 0 2px 1px 0 !important;
+}
+.gridSection select  {
+	margin: 0 !important;
+}
+
+/* Buttons ======================================================================= */
+
+form .actions {
+	margin: 20px 0 10px 0;	
+	text-align: right;
+}
+/* Submit button */
+form .primaryAction {
+}
+/* Cancel button */
+form .secondaryAction {
+	color: grey;
+}
+form .secondaryAction:hover {
+	color: black;
+}
+
+/* Form Builder Related Rules ===================================================== */
+
+/* Form or Fieldset instruction paragraph. */
+form .instructions {
+	padding: 1.5em 0 2em 0;
+	color: #000;
+	font-size: 90%;		
+}
+fieldset .instructions {	
+	margin: 1em auto 2em auto;
+	padding: 0;
+	text-indent: 2em;
+	width: 75%;
+}
+/* Asterisk on required fields */
+form .reqMark {
+	color: #F00;
+	padding: 0 4px;
+}
+/* wForms Related Rules ========================================================== */
+
+/* Field w/ a validation error */
+form .errFld {
+	padding: 1px;
+	border: 1px solid #F00;
+}
+/* Styling for message associated with a validation error. */
+form .errMsg {	
+	color: #CC3333 !important;
+	display: block;
+}
+/* Field-Hint with focus */
+form .field-hint {
+	color: #000;
+	float: right;
+	clear: right;
+	width: 190px;
+	font-size: 85%;
+	min-height: 2em;	
+	background-image: url(/images/tfa-bracket.gif);
+	background-repeat: no-repeat;
+	background-position: left center;	
+	padding: 0 0 0 20px ;
+}
+/* Field-Hint without focus */
+form .field-hint-inactive {
+	color: #666;
+	float: right;
+	clear: right;
+	width: 190px;
+	font-size: 85%;
+	min-height: 2em;
+	background-image: url(/images/tfa-greybracket.gif);
+	background-repeat: no-repeat;
+	background-position: left center;		
+	padding: 0 0 0 20px ;
+}
+/* Repeat Behavior divs (when not set on a fieldset) */
+div.repeat {
+	border: 1px solid #ddd;
+	background-color: #FFFFFF;
+	padding-right: 6px;	
+	background-image: none;	
+	margin: 5px 50px 0 50px;
+	padding-bottom:	10px;
+}
+div.removeable {
+	border-top: 2px solid #f5f2da;	
+	border-left: 2px solid #f5f2da;
+	border-bottom: 0px;
+	border-right: 0px;
+	background-image: url(_images/fieldset2-bg.jpg);	
+	background-color: #fffce3;
+	margin: 5px 50px 0 50px;	
+}
+/* Links generated by the Repeat Behavior */
+form .duplicateLink {
+	padding-left: 15px;
+	float: right;
+	text-transform: uppercase;
+	font-size: 75%;
+	background-image: url(_images/plus.gif);
+	background-repeat: no-repeat;
+	background-position: 2px 0;	
+}
+form .removeLink {
+	margin-top: 10px;
+	padding-left: 15px;
+	background-image: url(_images/minus.gif);
+	background-repeat: no-repeat;
+	background-position:  0 2px;
+	float: right;
+	text-transform: uppercase;
+	font-size: 75%
+}
+form td .duplicateLink, form td .removeLink  {
+	margin: 0;
+	float: none;
+	line-height: 100%;
+}
+/* Switch Behavior Classes */
+.onstate-a,  .onstate-b,  .onstate-c,  .onstate-d,
+.onstate-e,  .onstate-f,  .onstate-g,  .onstate-h, 
+.onstate-i,  .onstate-j,  .onstate-k,  .onstate-l, 
+.onstate-m,  .onstate-n,  .onstate-o,  .onstate-p, 
+.onstate-q,  .onstate-r,  .onstate-s,  .onstate-t,
+.onstate-u,  .onstate-v,  .onstate-w,  .onstate-x,  
+.onstate-y,  .onstate-z,  .onstate-aa, .onstate-ab,
+.onstate-ac, .onstate-ad, .onstate-ae, .onstate-af,
+.onstate-ag, .onstate-ah, .onstate-ai, .onstate-aj,
+.onstate-ak, .onstate-al, .onstate-am, .onstate-an,
+.onstate-ao, .onstate-ap, .onstate-aq, .onstate-ar,
+.onstate-as, .onstate-at, .onstate-au, .onstate-av,
+.onstate-aw, .onstate-ax, .onstate-ay, .onstate-az {
+	display: block;
+}
+/* offstate classes for the Switch Behavior are in wforms-jsonly.css */
+
+
+ 
+/* IE6 BUG FIXES ==================================================================== */
+form {
+	height:expression('1%'); /* IE Pick-a-boo bug fix */
+}
+form fieldset {
+	position:expression('relative'); /* Fixes IE problem with fieldset+legend boundaries */
+	margin-top:expression('1em');
+	padding-top:expression('1.5em');
+	overflow: expression('visible');
+}
+form fieldset legend {
+	position: expression('absolute'); 
+	top: expression('-.5em'); /* Fixes IE problem with fieldset+legend boundaries */
+	left:expression('.5em');
+}
+form .inlineSection .oneField {
+	display: expression('inline-block');		
+}
+label, form .label {	
+	font-size: expression('90%');
+}
+label.preField, form .inlineSection .oneField .inlineLabel {
+	width: expression('7em');
+	white-space: expression('nowrap');
+}

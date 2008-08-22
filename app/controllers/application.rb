@@ -1,4 +1,5 @@
-class ApplicationController < ActionController::Base
+class ApplicationController < ActionController::Base  
+  include AuthenticatedSystem
 
   before_filter :adjust_format_for_iphone
 

@@ -5,6 +5,7 @@
     <title><%= PAGE_TITLE %></title>
     <%= stylesheet_link_tag  "yui-reset" %>
     <%= stylesheet_link_tag "style" %>
+	 <%= stylesheet_link_tag "style2" %>
 
     <%= javascript_include_tag 'jquery-1.2.6' %>
     <%= javascript_include_tag 'jquery.corner' %>
@@ -31,6 +32,9 @@
   <body>
 	  <div id="wrapper">
       <h1><%= PAGE_TITLE %></h1>
+		<% if flash[:notice] %>
+			<div class="notice"><%= flash[:notice] %></div>
+		<%end%>
 
       <h2>Sponsors:</h2>
       <%- @sponsors_by_level.each do |level,sponsors| -%>
@@ -56,6 +60,18 @@
           </li>
         <%- end -%>
       </ul>
+		<% if logged_in? %>
+			<div class="admin-links">
+				<%= link_to "New Talk", new_talk_path %> | <%= link_to "New Room", new_room_path %>
+			</div>
+		<%end%>
     </div>
+	<div class="login">
+		<% if logged_in? %>
+			<p>You are logged in as <%= current_user.login %> (<%= link_to "logout", logout_path %>)</p>
+		<%else%>
+			<%= link_to "admin login", login_path %>
+		<%end%>
+	</div>
   </body>
 </html>

@@ -1,0 +1,8 @@
+<%= error_messages_for :talk %>
+<% form_for @talk do |f| %>
+	<fieldset>
+		<legend>New Talk</legend>
+		<%= render :partial => 'form', :locals => {:f => f}%>	
+	</fieldset>
+	<%= f.submit "Create"%>	
+<%end%>

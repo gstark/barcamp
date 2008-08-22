@@ -15,5 +15,5 @@ class ScheduleController < ApplicationController
       format.iphone {}
     end
   end
-
+  
 end

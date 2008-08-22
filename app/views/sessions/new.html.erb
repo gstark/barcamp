@@ -1,0 +1,16 @@
+<% form_tag session_path do -%>
+<fieldset>
+	<legend>Login</legend>
+	<span class="oneField"><label for="login" class="preField">Login</label>
+	<%= text_field_tag 'login' %></span>
+
+	<span class="oneField"><label for="password" class="preField">Password</label>
+	<%= password_field_tag 'password' %></span>
+
+	<!-- Uncomment this if you want this functionality
+	<p><label for="remember_me">Remember me:</label>
+	<%= check_box_tag 'remember_me' %></p>
+	-->
+</fieldset>
+<p><%= submit_tag 'Log in' %></p>
+<% end -%>
