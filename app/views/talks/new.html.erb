@@ -1,3 +1,6 @@
+<% content_for :head do %>
+	<%= stylesheet_link_tag "post-it"%>
+<%end%>
 <%= error_messages_for :talk %>
 <% form_for @talk do |f| %>
 	<fieldset>

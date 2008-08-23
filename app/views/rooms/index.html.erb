@@ -1,0 +1,5 @@
+<h2>Rooms</h2>
+<%= link_to "New Room", new_room_path %>
+<% @rooms.each do |room| %>
+	<p><%= room.name %> <%= link_to "(edit)", edit_room_path(room) %> <%= link_to "(delete)", room_path(room), :method => :delete, :confirm => "Are you sure?"%>
+<%end%>

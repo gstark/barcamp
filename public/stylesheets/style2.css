@@ -1,6 +1,6 @@
 /* Selections from Blueprint CSS Framework 0.7.1 */
-.error, .notice, .success {padding:.8em;margin:.5em 2em 2em .5em;border:2px solid #ddd;}
-.error {background:#FBE3E4;color:#8a1f11;border-color:#FBC2C4;}
+.error, .errorExplanation, .notice, .success {padding:.8em;margin:.5em 2em 2em .5em;border:2px solid #ddd;}
+.error, .errorExplanation {background:#FBE3E4;color:#8a1f11;border-color:#FBC2C4;}
 .notice {background:#FFF6BF;color:#514721;border-color:#FFD324;}
 .success {background:#E6EFC2;color:#264409;border-color:#C6D880;}
 .error a {color:#8a1f11;}
@@ -27,4 +27,8 @@
 .login a {
 	color: #fff;
 	text-decoration: underline;
+}
+
+.talk_name a {
+	text-decoration: none;
 }

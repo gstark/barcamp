@@ -1,6 +1,10 @@
 class RoomsController < ApplicationController
   before_filter :login_required
   
+  def index
+    @rooms = Room.find(:all)
+  end
+  
   def new
     @room = Room.new
   end
@@ -28,6 +32,11 @@ class RoomsController < ApplicationController
     else
       render :action => "edit"
     end
+  end
+  
+  def destroy
+    Room.destroy(params[:id])
+    redirect_to rooms_path
   end
   
 end

@@ -3,7 +3,9 @@
     <h4><%= daypart_description %></h4>
     <ul>
       <%- talks.each do |talk| -%>
-        <li class="talk_name"><span class="time"><%= talk_time(talk) %></span> - <%= talk.name %></li>
+        <li class="talk_name"><span class="time"><%= talk_time(talk) %></span> - <%= talk.name %> 
+				<%= link_to "(edit)", edit_talk_path(talk) if logged_in? %> <%= link_to "(delete)", talk_path(talk), :method => :delete, :confirm => "Confirm" if logged_in? %>
+		  </li>		  
       <%- end -%>
     </ul>
   </li>

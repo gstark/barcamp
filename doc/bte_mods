@@ -12,7 +12,8 @@
 
 7.  Did same for rooms_controller
 
-8.  Created layout/application.rhtml based on non-content html from views/schedule/index.html.erb
+8.  Created layout/application.rhtml based on non-content html from views/schedule/index.html.erb.  Removed schedule.rhtml and moved
+it's main contents into schedule/index.html.erb
 
 9.  Added stylesheets/post-it.css from http://www.formassembly.com (sans images) to give better form layout and also added a few lines 
 from Blueprint CSS to style notice and error messages to stylesheets/style2.css.  These could later be merged into style.css if accepted but wanted
@@ -20,10 +21,7 @@ to keep my changes separate for clarity.
 
 10. Added some authentication routes: /login /logout
 
-11. Added flash[:notice] to schedule/index.html.erb.  I don't like duplicating code between application.rhtml and schedule/index.html.erb
-but it should be Gavin's decision whether or not to merge all but main content from schedule/index.html.erb into app... and delete schedule.rhtml
-
-12. Added requirement for presence of room_id, start_time, end_time
+11. Added requirement for presence of room_id, start_time, end_time and basic validations for time
 
 
 

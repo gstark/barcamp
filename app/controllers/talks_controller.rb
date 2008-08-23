@@ -30,4 +30,9 @@ class TalksController < ApplicationController
     end
   end
   
+  def destroy
+    Talk.destroy(params[:id])
+    redirect_to root_path
+  end
+  
 end

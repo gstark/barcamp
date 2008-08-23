@@ -5,11 +5,13 @@
     <title><%= PAGE_TITLE %></title>
     <%= stylesheet_link_tag  "yui-reset" %>
     <%= stylesheet_link_tag "style" %>
-	 <%= stylesheet_link_tag "post-it"%>
+	 <%= stylesheet_link_tag "style2" %>
+
     <%= javascript_include_tag 'jquery-1.2.6' %>
     <%= javascript_include_tag 'jquery.corner' %>
 
-	<script type="text/javascript">
+	 <%= yield :head%>
+    <script type="text/javascript">
       $(document).ready(
         function()
         {
@@ -28,11 +30,18 @@
 
   <body>
 	  <div id="wrapper">
-      <h1><%= PAGE_TITLE %></h1>
+      <h1><%= link_to PAGE_TITLE, root_path %></h1>
 		<% if flash[:notice] %>
 			<div class="notice"><%= flash[:notice] %></div>
 		<%end%>
-      <%= yield %>
+		<%= yield %>
     </div>
+	<div class="login">
+		<% if logged_in? %>
+			<p>You are logged in as <%= current_user.login %> (<%= link_to "logout", logout_path %>)</p>
+		<%else%>
+			<%= link_to "admin login", login_path %>
+		<%end%>
+	</div>
   </body>
 </html>

@@ -1,11 +1,11 @@
 <% content_for :head do %>
 	<%= stylesheet_link_tag "post-it"%>
 <%end%>
-<%= error_messages_for :room %>
-<% form_for @room do |f| %>
+<%= error_messages_for :talk %>
+<% form_for @talk do |f| %>
 	<fieldset>
-		<legend>New Room</legend>
+		<legend>Edit Talk</legend>
 		<%= render :partial => 'form', :locals => {:f => f}%>	
 	</fieldset>
-	<%= f.submit "Create"%>	
+	<%= f.submit "Update"%>	
 <%end%>

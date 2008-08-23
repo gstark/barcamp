@@ -4,8 +4,8 @@
 <%= error_messages_for :room %>
 <% form_for @room do |f| %>
 	<fieldset>
-		<legend>New Room</legend>
+		<legend>Edit Room</legend>
 		<%= render :partial => 'form', :locals => {:f => f}%>	
 	</fieldset>
-	<%= f.submit "Create"%>	
+	<%= f.submit "Update"%>	
 <%end%>
