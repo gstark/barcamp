@@ -1,0 +1,5 @@
+<h2>Sponsors</h2>
+<%= link_to "New Sponsor", new_sponsor_path %>
+<% @sponsors.each do |sponsor| %>
+	<p><%= sponsor.name %> <%= link_to "(edit)", edit_sponsor_path(sponsor) %> <%= link_to "(delete)", sponsor_path(sponsor), :method => :delete, :confirm => "Are you sure?"%>
+<%end%>

@@ -4,7 +4,7 @@ ActionController::Routing::Routes.draw do |map|
   map.resource :session
   
   map.root :controller => 'schedule'
-  map.resources :talks, :rooms
+  map.resources :talks, :rooms, :sponsors
   map.login '/login', :controller => 'sessions', :action => 'new'
   map.logout '/logout', :controller => 'sessions', :action => 'destroy'
 

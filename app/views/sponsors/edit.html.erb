@@ -1,0 +1,11 @@
+<% content_for :head do %>
+	<%= stylesheet_link_tag "post-it"%>
+<%end%>
+<%= error_messages_for :sponsor %>
+<% form_for @sponsor do |f| %>
+	<fieldset>
+		<legend>Edit Sponsor</legend>
+		<%= render :partial => 'form', :locals => {:f => f}%>	
+	</fieldset>
+	<%= f.submit "Update"%>	
+<%end%>
