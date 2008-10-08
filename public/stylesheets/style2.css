@@ -32,3 +32,8 @@
 .talk_name a {
 	text-decoration: none;
 }
+
+.talk_name .talk_url {
+	margin-left: 160px;
+	padding-top: 10px;
+}
