@@ -1,17 +1,37 @@
 <%- if talks.any? -%>
   <li class="day_part">
     <h4><%= daypart_description %></h4>
-    <ul>
+    <ul class="talk">
       <%- talks.each do |talk| -%>
         <li class="talk_name"><span class="time"><%= talk_time(talk) %></span> - <%= talk.name %> 
-				<%= link_to "(edit)", edit_talk_path(talk) if logged_in? %> <%= link_to "(delete)", talk_path(talk), :method => :delete, :confirm => "Confirm" if logged_in? %>
-				<% if talk.url %>
-					<br/>
-					<div class="talk_url">
-						<%= link_to talk.url, talk.url %>
-					</div>
-				<%end%>
-		  </li>		  
+
+
+          <table class="talk_details">
+            <tbody>
+              <tr><td id="topleft" class="corner"></td><td class="top"></td><td id="topright" class="corner"></td></tr>
+
+              <tr>
+                <td class="left"></td>
+                <td class="talk_details_content">
+                  <h5><%= talk.name %></h5>
+                  <h6>by: <%= talk.who %></h6>
+                  <p><%= talk.description %></p>
+                  <%= talk_url( talk ) %>
+                </td>
+                <td class="right"></td>    
+              </tr>
+
+              <tr><td class="corner" id="bottomleft"></td><td class="bottom"><img width="30" height="29" alt="popup tail" src="/images/bubble/bubble-tail2.png"/></td><td id="bottomright" class="corner"></td></tr>
+            </tbody>
+          </table>
+
+
+
+          <%- if logged_in? -%>
+            <%= link_to "(edit)", edit_talk_path(talk) %>
+            <%= link_to "(delete)", talk_path(talk), :method => :delete, :confirm => "Confirm" %>
+          <%- end -%>
+        </li>		  
       <%- end -%>
     </ul>
   </li>

@@ -3,14 +3,20 @@
 		<%= link_to "New Talk", new_talk_path %> | <%= link_to "Manage Rooms", rooms_path %> | <%= link_to "Manage Sponsors", sponsors_path %>
 	</div>
 <%end%>
+   
+<ul>
+  <li class="sponsors">
+    <h3 class="head">Sponsors:</h3>
 
-<h2>Sponsors:</h2>
-<%- @sponsors_by_level.each do |level,sponsors| -%>
-  <h3><%= level %></h3>
-  <%- sponsors.each do |sponsor| -%>
-    <h4><%= sponsor.name %> <%= link_to sponsor.homepage, sponsor.homepage %></h4>
-  <%- end -%>
-<% end %>
+    <ul>
+      <%- @sponsors_by_level.each do |level,sponsors| -%>
+        <%- sponsors.each do |sponsor| -%>
+          <li><%= link_to( sponsor.name, sponsor.homepage, { :target => "_blank" } ) %></li>
+        <%- end -%>
+      <% end %>
+    </ul>
+  </li>
+</ul>
 
 <ul>
   <%- @rooms.each do |room| -%>

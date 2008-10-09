@@ -43,12 +43,11 @@ a:visited {
 	cursor: pointer;
 	display: block;
 	background: url(/images/expand.png) no-repeat left center;
-	padding-left: 18px;
+	padding-left: 25px;
 }
 
 .head.active {
 	background: url(/images/contract.png) no-repeat left center;
-	padding-left: 18px;
 }
 
 /* @end */
@@ -85,15 +84,21 @@ h3 {
 h4 {
 	font-size: 1.4em;
 	padding-left: 50px;
+	padding-top: 0.2em;
 }
 
-.room_name h3 {
+.room_name h3, .sponsors h3 {
 	width: 6em;
 	font-size: 1.4em;
 	color: #253245;
 	padding-bottom: 4px;
 	margin: 15px 0;
 	border-bottom: 1px solid #253245;
+}
+
+.sponsors li
+{
+  padding-bottom: 0.5em;
 }
 
 .day_part h4 {
@@ -108,7 +113,7 @@ h4 {
 ul {
 	padding-left: 75px;
 	list-style-type: none;
-	margin: 3em 0 0 0;
+	margin: 2em 0 0 0;
 }
 
 ul li ul {
@@ -129,6 +134,7 @@ li.talk_name {
 	font-size: 1.2em;
 	color: #68768D;
 	padding: .5em;
+	position: relative;
 }
 
 
@@ -138,5 +144,91 @@ li.no_talks {
 }
 
 
+
+
+.talk_details
+{
+  border-collapse:  collapse;
+  display:          none;
+  position:         absolute;
+  z-index:          50;
+}
+
+.talk_details_content
+{
+  background: white;
+}
+
+.talk_details_content h5, .talk_details_content h6
+{
+  padding-bottom: 0.5em;
+}
+
+.talk_details_content p
+{
+  font-size: 0.8em;
+}
+
+.talk_details_content a
+{
+  font-size: 0.7em;
+}
+
+.talk_details td.corner
+{
+  height: 15px;
+  width:  19px;
+}
+
+.talk_details td#topleft
+{
+  background-image: url(/images/bubble/bubble-1.png);
+}
+
+.talk_details td.top
+{
+  background-image: url(/images/bubble/bubble-2.png);
+}
+
+.talk_details td#topright
+{
+  background-image: url(/images/bubble/bubble-3.png);
+}
+
+.talk_details td.left
+{
+  background-image: url(/images/bubble/bubble-4.png);
+}
+
+.talk_details td.right
+{
+  background-image: url(/images/bubble/bubble-5.png);
+}
+
+.talk_details td#bottomleft
+{
+  background-image: url(/images/bubble/bubble-6.png);
+}
+
+.talk_details td.bottom
+{
+  background-image: url(/images/bubble/bubble-7.png);
+  text-align:       center;
+}
+
+.talk_details td.bottom img
+{
+  display:  block;
+  margin:   0 auto;
+}
+
+.talk_details td#bottomright
+{
+  background-image:url(/images/bubble/bubble-8.png);
+}
+
 /* @end */
+
+
+
 

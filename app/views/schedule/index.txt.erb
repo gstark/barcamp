@@ -5,7 +5,7 @@ Sponsors:
 <%- @sponsors_by_level.each do |level,sponsors| -%>
   <%= level %>
   <%- sponsors.each do |sponsor| -%>
-    <%= sponsor.name %> <%= sponsor.homepage %>
+    <%= text_sponsor_name( sponsors, sponsor ) %>  <%= sponsor.homepage %>
   <%- end -%>
 <% end %>
 

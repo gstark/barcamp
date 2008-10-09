@@ -1,6 +1,12 @@
 <%- if talks.any? -%>
-    <%= daypart_description %>
-    <%- talks.each do |talk| -%>
-        <%= talk_time(talk) %> - <%= talk.name %>
-    <%- end -%>
+  <%= daypart_description %>
+  <%- talks.each do |talk| -%>
+    <%= talk_time(talk) %> - <%= talk.name %>
+    <%- padding = " "*20 -%>
+<%= padding %>by: <%= talk.who %>
+<%= padding + talk.url if talk.url%>
+
+<%= padding %><%= text_talk_description( talk, padding, 50 ) %>
+
+  <%- end -%>
 <%- end -%>
