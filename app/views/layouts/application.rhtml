@@ -5,27 +5,15 @@
     <title><%= PAGE_TITLE %></title>
     <%= stylesheet_link_tag  "yui-reset" %>
     <%= stylesheet_link_tag "style" %>
-	 <%= stylesheet_link_tag "style2" %>
+	  <%= stylesheet_link_tag "style2" %>
 
     <%= javascript_include_tag 'jquery-1.2.6' %>
     <%= javascript_include_tag 'jquery.corner' %>
     <%= javascript_include_tag 'talk_bubbles' %>
+    <%= javascript_include_tag 'corners' %>
 
-	 <%= yield :head%>
+	  <%= yield :head %>
     <script type="text/javascript">
-      $(document).ready(
-        function()
-        {
-          $(".head").click(
-            function()
-            {
-              $(this).next().slideToggle("slow");
-              $(this).toggleClass("active");
-            } 
-          ).next().hide();
-      $("#wrapper").corner ("20px");
-      }
-    );
     </script>
   </head>
 
@@ -37,12 +25,11 @@
 		<%end%>
 		<%= yield %>
     </div>
-	<div class="login">
-		<% if logged_in? %>
-			<p>You are logged in as <%= current_user.login %> (<%= link_to "logout", logout_path %>)</p>
-		<%else%>
-			<%= link_to "admin login", login_path %>
-		<%end%>
-	</div>
+  	<div class="login">
+  		<% if logged_in? %>
+  			<p>You are logged in as <%= current_user.login %> (<%= link_to "logout", logout_path %>)</p>
+  		<% end %>
+  	</div>
+  	<%= yield :footer %>
   </body>
 </html>

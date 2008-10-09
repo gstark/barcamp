@@ -227,6 +227,19 @@ li.no_talks {
   background-image:url(/images/bubble/bubble-8.png);
 }
 
+#alternatives
+{
+	width:  85%;
+	margin: 10px auto;
+	color:  #fff;  
+}
+
+#alternatives a
+{
+  padding-left:     2em; 
+	color:            #fff;
+	text-decoration: underline;
+}
 /* @end */
 
 

@@ -34,3 +34,15 @@
     </li>
   <%- end -%>
 </ul>
+
+<% content_for :footer do %>
+  <div id="alternatives">
+  	<%= link_to( "Text Version", "/schedule.txt" ) %>
+  	<%= link_to( "iPhone Version", "/schedule.iphone" ) %>
+  	<%= link_to( "RSS Feed", "/schedule.rss" ) %>
+  </div>
+<% end %>
+
+<% content_for :head do %>
+  <link href="/schedule.rss" rel="alternate" type="application/rss+xml" title="RSS Feed" />
+<% end %>
