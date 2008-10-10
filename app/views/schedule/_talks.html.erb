@@ -1,9 +1,10 @@
 <%- if talks.any? -%>
   <li class="day_part">
     <h4><%= daypart_description %></h4>
-    <ul class="talk">
+    <ul class="talks">
       <%- talks.each do |talk| -%>
-        <li class="talk_name"><span class="time"><%= talk_time(talk) %></span> - <%= talk.name %> 
+        <li class="talk">
+          <span class="talk_brief"><span class="time"><%= talk_time(talk) %></span> - <%= talk.name %></span>
 
 
           <table class="talk_details">

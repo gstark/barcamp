@@ -129,7 +129,7 @@ ul.day_part {
 	padding: 0;
 }
 
-li.talk_name {
+li.talk {
 	font-size: 1.2em;
 	color: #68768D;
 	padding: .5em;
@@ -141,7 +141,6 @@ li.no_talks {
 	color: #AE1C00;
 	font-weight: 700;
 }
-
 
 
 
