@@ -1,7 +1,7 @@
 class Talk < ActiveRecord::Base
   belongs_to :room
   
-  named_scope :by_time,   :order => :start_time
+  named_scope :by_time,   :order => "time(start_time)"
   named_scope :morning,   :conditions => [ "time(start_time) <  '12:00' " ]
   named_scope :afternoon, :conditions => [ "time(start_time) >= '12:00' " ]
 
@@ -18,6 +18,18 @@ class Talk < ActiveRecord::Base
       errors.add_to_base("Please set times") if start_time == min || end_time == min
       errors.add_to_base("Please set end time after start time") if end_time <= start_time
     end
+  end
+
+  def speakable_description
+    "#{name}, by #{who}. . . From #{start_time_string} until #{end_time_string}"
+  end
+ 
+  def start_time_string
+    start_time ? start_time.strftime("%I:%M") : "unknown"
+  end
+
+  def end_time_string
+    end_time ? end_time.strftime("%I:%M") : "unknown"
   end
 
   private
