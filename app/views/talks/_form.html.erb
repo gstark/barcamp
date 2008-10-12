@@ -3,8 +3,8 @@
 <%= f.text_area :description %></span>
 <span class="oneField"><label for="who" class="preField">Who: </label><%= f.text_field :who %></span>
 <span class="oneField"><label for="room_id" class="preField">Room: </label><%= f.select :room_id, Room.find(:all).map {|r| [r.name, r.id]}%></span>
-<span class="oneField"><label for="start_time" class="preField">Time: </label><%= f.time_select :start_time, {:minute_step => 15} %>
+<span class="oneField"><label for="start_time" class="preField">Time: </label><%= f.text_field :start_time %>
 to
-<%= f.time_select :end_time, { :minute_step => 15} %>
+<%= f.text_field :end_time %>
 </span>
 <span class="oneField"><label for="url" class="preField">URL: </label><%= f.text_field :url %></span>

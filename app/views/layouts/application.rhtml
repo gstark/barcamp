@@ -18,6 +18,7 @@
   </head>
 
   <body>
+  	<%= yield :header %>
 	  <div id="wrapper">
       <h1><%= link_to PAGE_TITLE, root_path %></h1>
 		<% if flash[:notice] %>

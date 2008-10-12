@@ -5,20 +5,6 @@
 <%end%>
    
 <ul>
-  <li class="sponsors">
-    <h3 class="head">Sponsors:</h3>
-
-    <ul>
-      <%- @sponsors_by_level.each do |level,sponsors| -%>
-        <%- sponsors.each do |sponsor| -%>
-          <li><%= link_to( sponsor.name, sponsor.homepage, { :target => "_blank" } ) %></li>
-        <%- end -%>
-      <% end %>
-    </ul>
-  </li>
-</ul>
-
-<ul>
   <%- @rooms.each do |room| -%>
     <li class="room_name">
       <h3 class="head"><%= room.name %></h3>
@@ -35,7 +21,22 @@
   <%- end -%>
 </ul>
 
-<% content_for :footer do %>
+<ul>
+  <li class="sponsors">
+    <h3 class="head">Sponsors:</h3>
+
+    <ul>
+      <%- @sponsors_by_level.each do |level,sponsors| -%>
+        <%- sponsors.each do |sponsor| -%>
+          <li><%= link_to( sponsor.name, sponsor.homepage, { :target => "_blank" } ) %></li>
+        <%- end -%>
+      <% end %>
+    </ul>
+  </li>
+</ul>
+
+
+<% content_for :header do %>
   <div id="alternatives">
   	<%= link_to( "Text Version", "/schedule.txt" ) %>
   	<%= link_to( "iPhone Version", "/schedule.iphone" ) %>
