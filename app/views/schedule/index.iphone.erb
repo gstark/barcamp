@@ -33,10 +33,11 @@
     </div>
 
     <ul id="home" title="<%= PAGE_TITLE %>" selected="true">
-      <li><a href="#sponsors">About our sponsors</a></li>
       <% @rooms.each do |room| %>
         <li><a href="#<%= dom_id( room ) %>"><%= room.name %></a></li>
       <% end %>
+      <li><%= link_to "Text Version", formatted_schedule_index_path( :format => "txt"), { :target => "_blank" } %></li>
+      <li><a href="#sponsors">About our sponsors</a></li>
       <li><a href="<%= HOMEPAGE %>" target="_blank"><%= HOMEPAGE %></a></li>
     </ul>
 

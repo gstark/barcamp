@@ -16,6 +16,7 @@ class ApplicationController < ActionController::Base
 
   # Return true for requests to iphone subdomain
   def iphone_request?
+    return false if params[:format] && params[:format] != "iphone"
     return (request.subdomains.first == "iphone" || params[:format] == "iphone" || iphone_user_agent?)
   end
 
