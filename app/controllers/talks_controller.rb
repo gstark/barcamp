@@ -1,6 +1,14 @@
 class TalksController < ApplicationController
-  before_filter :login_required
+  before_filter :login_required, :except => :index
   
+  def index    
+    @talks = Talk.all
+
+    respond_to do |format|      
+      format.json {}      
+    end
+  end
+
   def new
     @talk = Talk.new
   end

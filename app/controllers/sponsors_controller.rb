@@ -1,8 +1,13 @@
 class SponsorsController < ApplicationController
-  before_filter :login_required
+  before_filter :login_required, :except => :index
   
   def index
     @sponsors = Sponsor.find(:all)
+
+    respond_to do |format|
+      format.html
+      format.json 
+    end
   end
   
   def new

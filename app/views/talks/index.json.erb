@@ -1,0 +1,15 @@
+{"talks":[
+	<% @talks.each do |t| %>
+		{ 
+			"id": "<%=t.id%>",
+			"name": "<%=t.name%>", 
+			"description": "<%=t.description%>",
+			"who": "<%=t.who%>",
+			"link": "<%=t.url%>",
+			"start_time": "<%=t.start_time.hour%>:<%=t.start_time.min%>",
+			"end_time": "<%=t.end_time.hour%>:<%=t.end_time.min%>",
+			"room_id": "<%=t.room.id%>",
+			"room_name": "<%=t.room.name%>"
+		 }<%= "," unless t == @talks.last %>     
+	<%end%>
+]}
